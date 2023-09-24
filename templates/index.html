@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <style>
+        .navbar-light-blue {
+            background-color: #002e6e;
+            height: 80px;
+        }
+
+        .nav-item a {
+            font-weight: 700 !important;
+            font-family: 'Poppins', sans-serif !important;
+            font-size: larger !important;
+        }
+
+        .navbar-brand {
+            font-family: 'Poppins', sans-serif !important;
+            font-weight: 700 !important;
+            font-size: 24px !important;
+        }
+
+        /* body {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
+                              linear-gradient(90deg, #add8e6 50%, #fff 50%);
+            background-size: 200% 100%;
+            backdrop-filter: blur(70px);
+        }
+        .nav-item a.nav-link {
+            color: #00B9F1 !important;
+        }
+        .container{
+            color: black !important;
+        }
+        .navbar-brand{
+            color: #00B9F1 !important;
+
+        } */
+        body {
+        background: -moz-linear-gradient(45deg, #02e1ba 0%, #26c9f2 29%, #d911f2 66%, #ffa079 100%);
+        background: -webkit-linear-gradient(45deg, #02e1ba 0%,#26c9f2 29%,#d911f2 66%,#ffa079 100%);
+        background: linear-gradient(45deg, #02e1ba 0%,#26c9f2 29%,#d911f2 66%,#ffa079 100%);
+        background-size: 400% 400%;
+        -webkit-animation: Gradient 15s ease infinite;
+	    -moz-animation: Gradient 15s ease infinite;
+	    animation: Gradient 15s ease infinite;
+	    /*min-height: calc(100vh - 2rem);*/
+	    display: flex;
+	    flex-direction: column;
+	    align-items: stretch;
+	    justify-content: space-evenly;
+	    overflow: hidden;
+	    position: relative; 
+}   
+
+body::before, 
+body::after {
+	content: "";
+	width: 70vmax;
+	height: 70vmax;
+	position: absolute;
+	background: rgba(255, 255, 255, 0.07);
+	left: -20vmin;
+	top: -20vmin;
+	animation: morph 15s linear infinite alternate, spin 20s linear infinite;
+	z-index: 1;
+	will-change: border-radius, transform;
+	transform-origin: 55% 55%;
+	pointer-events: none; 
+}
+	
+body::after {
+    width: 70vmin;
+    height: 70vmin;
+    left: auto;
+    right: -10vmin;
+    top: auto;
+    bottom: 0;
+    animation: morph 10s linear infinite alternate, spin 26s linear infinite reverse;
+    transform-origin: 20% 20%; 
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0 50%
+	}
+}
+
+@keyframes morph {
+  0% {
+    border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%; }
+  100% {
+    border-radius: 40% 60%; } 
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn); 
+  } 
+}
+	.st0{display:none;}
+	.st1{display:inline;}
+	.st2{opacity:0.29;}
+	.st3{fill:#FFFFFF;}
+	.st4{clip-path:url(#SVGID_2_);fill:#FFFFFF;}
+	.st5{clip-path:url(#SVGID_4_);}
+	.st6{clip-path:url(#SVGID_6_);}
+	.st7{clip-path:url(#SVGID_8_);}
+	.st8{clip-path:url(#SVGID_10_);}
+	.st9{fill:none;}
+	.st10{clip-path:url(#SVGID_12_);}
+	.st11{opacity:0.7;}
+	.st12{clip-path:url(#SVGID_14_);}
+	.st13{opacity:0.2;}
+	.st14{clip-path:url(#SVGID_16_);}
+	.st15{opacity:0.3;fill:#FFFFFF;enable-background:new    ;}
+
+    a{
+        color: white;
+    }
+
+    </style>
+    <title>Well It!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-light-blue">
+        <div class="container">
+            <a class="navbar-brand ml-auto" href="#" style = "color: white;">Well It!</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html" style = "color: white;padding-right: 56px;" >About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style = "color: white;">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="faq.html" style = "color: white; padding-left: 56px;" >FAQ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5 text-center">
+        <div class="row pt-5">
+            <div class="col-sm text-center pt-5">
+                <h1 class="display-3" id="typed-output"></h1>
+            </div>
+        </div>
+
+        <div class="row pt-3">
+            <div class="col-sm text-center">
+                <p id="line1"></p>
+                <p id="line2"></p>
+                <p id="line3"></p>
+                <p id="line4"></p>
+            </div>
+        </div>
+
+        <form id="locationForm" style="display: none;">
+            <div class="row pt-3">
+                <div class="col-sm text-center">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="stateDropdownButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span id="selectedState">Select State</span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="stateDropdownButton" id="stateDropdown">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm text-center">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="districtDropdownButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span id="selectedDistrict">Select District</span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="districtDropdownButton" id="districtDropdown">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm text-center">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="regionDropdownButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Region
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="regionDropdownButton" id="regionDropdown">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row pt-3">
+                <div class="col-sm text-center">
+                    <button type="button" class="btn btn-primary" id="getLocationButton">Submit</button>
+                </div>
+            </div>
+            
+            <div class="row pt-4">
+                <div class="col-sm text-center">
+                    <!-- <hr style="border-top: 1px solid #6c757d; width: 50%; margin-top: 10px;"> -->
+                    <strong style="font-size: 20px; margin: 0 10px;">OR</strong>
+                    <!-- <hr style="border-top: 1px solid #6c757d; width: 50%; margin-top: 10px;"> -->
+                </div>
+            </div>
+
+            <div class="row pt-3">
+                <div class="col-sm text-center">
+                    <p style="color: white;">To Fetch Your Location Automatically</p>
+                </div>
+            </div>
+
+            <div class="row pt-3">
+                <div class="col-sm text-center">
+                    <button type="button" class="btn btn-primary" id="apiLocationButton">Get Location</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const textToType = "Welcome To Well It!";
+            const typed = new Typed("#typed-output", {
+                strings: [textToType],
+                typeSpeed: 80, 
+                startDelay: 500, 
+                showCursor: false,  
+                onComplete: function () {
+                    document.querySelector('#locationForm').style.display = 'block';
+                    document.querySelector('#locationForm').style.color = "white";
+                }
+            });
+
+            setTimeout(function() {
+                const lines = [
+                    "Use this tool to predict wheather construction of well is possible or not in your location"
+                    ,]
+
+                const lineElements = [
+                    document.getElementById("line1"),
+                    document.getElementById("line2"),
+                    document.getElementById("line3"),
+                    document.getElementById("line4"),
+                ];
+
+                let currentIndex = 0;
+
+                const typeNextLine = () => {
+                    if (currentIndex < lines.length) {
+                        const typedLine = new Typed(lineElements[currentIndex], {
+                            strings: [lines[currentIndex]],
+                            typeSpeed: 60,
+                            startDelay: 0,
+                            showCursor: false,
+                            onComplete: function () {
+                                currentIndex++;
+                                typeNextLine();
+                            }
+                        });
+                    } else {
+                        document.querySelector('#locationForm').style.display = 'block';
+                    }
+                };
+
+                typeNextLine();
+            }, 1000);
+
+            const indianStates = [
+                "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa",
+                "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala",
+                "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland",
+                "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura",
+                "Uttar Pradesh", "Uttarakhand", "West Bengal"
+            ];
+
+            const stateDropdown = document.querySelector("#stateDropdown");
+
+            indianStates.forEach(state => {
+                const stateOption = document.createElement("a");
+                stateOption.classList.add("dropdown-item");
+                stateOption.href = "#";
+                stateOption.textContent = state;
+                stateOption.dataset.state = state;
+
+                stateOption.addEventListener("click", function (e) {
+                    document.querySelector("#selectedState").innerText = e.target.dataset.state;
+                });
+
+                stateDropdown.appendChild(stateOption);
+            });
+
+            
+            document.getElementById("apiLocationButton").addEventListener("click", function () {
+                if ("geolocation" in navigator) {
+                    navigator.geolocation.getCurrentPosition(function (position) {
+                        const latitude = position.coords.latitude;
+                        const longitude = position.coords.longitude;
+                        const apiKey = 'f0250b7b1ce0422eb143d48091f4baa0';
+
+                        fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${apiKey}`)
+                            .then(response => response.json())
+                            .then(data => {
+                                const locationData = data.results[0];
+
+                                if (locationData.components && locationData.components.city) {
+                                    const city = locationData.components.city;
+                                    const country = locationData.components.country;
+
+                                    alert(`City: ${city}, Country: ${country}`);
+                                } else {
+                                    const formattedLocation = locationData.formatted || "Location information not available.";
+                                    alert(`Location: ${formattedLocation}`);
+                                }
+                            })
+                            .catch(error => {
+                                console.error("Error performing reverse geocoding:", error);
+                                alert("Error getting location details. Please check the console for more information.");
+                            });
+                    });
+                } else {
+                    alert("Geolocation is not available in your browser.");
+                }
+            });
+
+           
+            document.getElementById("getLocationButton").addEventListener("click", function () {
+                window.location.href = "result.html"; 
+            });
+        });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        let var_ = '';
+        document.querySelector("#stateDropdown").addEventListener("click", function () {
+            const selectedState = document.querySelector("#selectedState").innerText;
+
+            if (selectedState === "Rajasthan") {
+                const rajasthanDistricts = [
+                    "AJAGARA",
+                    "Alwar",
+                    "Banswara",
+                    "Baran",
+                    "Barmer",
+                    "Bharatpur",
+                    "Bhilwara",
+                    "Bikaner",
+                    "Bundi",
+                    "Chittorgarh",
+                    "Churu",
+                    "Dausa",
+                    "Dholpur",
+                    "Dungarpur",
+                    "Hanumangarh",
+                    "Jaipur",
+                    "Jaisalmer",
+                    "Jalore",
+                    "Jhalawar",
+                    "Jhunjhunu",
+                    "Jodhpur",
+                    "Karauli",
+                    "Kota",
+                    "Nagaur",
+                    "Pali",
+                    "Pratapgarh",
+                    "Rajsamand",
+                    "Sawai Madhopur",
+                    "Sikar",
+                    "Sirohi",
+                    "Sri Ganganagar",
+                    "Tonk",
+                    "Udaipur"
+                ];
+                
+                const districtDropdown = document.querySelector("#districtDropdown");
+
+                districtDropdown.innerHTML = '';
+
+                rajasthanDistricts.forEach(district => {
+                    const districtOption = document.createElement("a");
+                    districtOption.classList.add("dropdown-item");
+                    districtOption.href = "#";
+                    districtOption.textContent = district;
+                    districtOption.dataset.district = district;
+
+                    districtOption.addEventListener("click", function (e) {
+                        document.querySelector("#selectedDistrict").innerText = this.dataset.district;
+                        //console.log(this.dataset.district);
+                        var_ = var_ + this.dataset.district;
+                        //console.log(var_);
+                        const val = {var_};
+                        const s = JSON.stringify(val); 
+                        console.log(s);
+                        $.ajax({
+                            url:"/test",
+                            type:"POST",
+                            contentType: "application/json",
+                            data: JSON.stringify(s)});
+                        });
+
+                        districtDropdown.appendChild(districtOption);
+                });
+            } else {
+                const districtDropdown = document.querySelector("#districtDropdown");
+                districtDropdown.innerHTML = '';
+            }
+        });
+    </script>
+    
+</body>
+</html>

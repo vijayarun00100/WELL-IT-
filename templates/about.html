@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        .navbar-light-blue {
+            background-color: #add8e6;
+        }
+
+        .nav-item a {
+            font-weight: 700 !important;
+            font-family: 'Poppins', sans-serif !important;
+            font-size: larger !important;
+        }
+
+        .navbar-brand {
+            font-family: 'Poppins', sans-serif !important;
+            font-weight: 700 !important;
+            font-size: 24px !important;
+        }
+
+        body {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
+                              linear-gradient(90deg, #add8e6 50%, #fff 50%);
+            background-size: 200% 100%;
+            backdrop-filter: blur(70px);
+        }
+
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .description {
+            margin-top: 20px;
+        }
+    </style>
+    
+    <title>About Us</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-light-blue">
+        <div class="container">
+            <a class="navbar-brand ml-auto" href="#">Well It!</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">FAQ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container text-center mt-5">
+        <h1 class="display-3" id="about-heading"></h1>
+        <div class="description" id="description">
+            <p class="fade-in">Our project leverages machine learning to predict the feasibility of constructing a well in a specific location.</p>
+            <p class="fade-in">This predictive tool is complemented by a user-friendly app that includes a chatbot feature, providing users with an interactive and informative experience.</p>
+            <p class="fade-in">Whether you're planning well construction or seeking advice, our app combines technology and AI to assist you in making informed decisions regarding well placement.</p>
+        </div>
+    </div>
+
+    <iframe class = "xmind" src='https://www.xmind.app/embed/swXFim/' width='750' height='422' frameborder='0' scrolling='no' allowfullscreen="true"></iframe>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <script>
+        
+        document.addEventListener("DOMContentLoaded", function () {
+            const aboutHeading = new Typed("#about-heading", {
+                strings: ["ABOUT"],
+                typeSpeed: 80,
+                startDelay: 500,
+                showCursor: false,
+                onComplete: function () {
+                    
+                    const descriptionLines = document.querySelectorAll(".fade-in");
+                    descriptionLines.forEach((line, index) => {
+                        setTimeout(() => {
+                            line.style.opacity = 1;
+                        }, index * 1000); 
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
